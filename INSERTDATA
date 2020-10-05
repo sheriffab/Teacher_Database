@@ -1,0 +1,99 @@
+-- INSERT DATA
+
+
+
+-- Teacher Details
+INSERT INTO TEACHER_DETAILS
+( -- Columns to insert data into
+ [Fname], [Lname], [Salary]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ 'Name1', 'LastName', '60000'
+);
+
+INSERT INTO TEACHER_DETAILS
+( -- Columns to insert data into
+ [Fname], [Lname], [Salary]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ 'Name2', 'LastName2', '60000'
+);
+INSERT INTO TEACHER_DETAILS
+( -- Columns to insert data into
+ [Fname], [Lname], [Salary]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ 'Name3', 'LastName3', '60000'
+);
+
+-- insert into teachers
+INSERT INTO TEACHERS
+( -- Columns to insert data into
+ [Teacher_id] , [Teacher_name] , [Teacher_lastName], [Teacher_salary]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ '004' , 'Name4', 'LastName4', '6000'
+);
+INSERT INTO TEACHERS
+( -- Columns to insert data into
+ [Teacher_id] , [Teacher_name] , [Teacher_lastName], [Teacher_salary]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ '002' , 'Name2', 'LastName2', '60000'
+);
+
+-- insert into class_details
+INSERT INTO CLASS_DETAILS
+( -- Columns to insert data into
+ [class_name] , [class_size] , [class_subject]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ 'Math01' , '15', 'Math'
+);
+
+INSERT INTO CLASS_DETAILS
+( -- Columns to insert data into
+ [class_name] , [class_size] , [class_subject]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ 'Math02' , '16', 'Math'
+);
+
+INSERT INTO CLASS_DETAILS
+( -- Columns to insert data into
+ [class_name] , [class_size] , [class_subject]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ 'Math03' , '17', 'Math'
+);
+
+
+INSERT INTO CLASSES
+( -- Columns to insert data into
+ [cc_id] , [cc_name] , [cc_size], [cc_subject], [cc_teacher_id]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ '100' , 'Math01', '15', 'Math', '1'
+);
+
+-- cc_id is unique to a class_name, class_size, class_subject, class_teacher_id
+INSERT INTO CLASSES
+( -- Columns to insert data into
+ [cc_id] , [cc_name] , [cc_size], [cc_subject], [cc_teacher_id]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ '105' , 'Math05', '18', 'Math', '5'
+);
+
+-- How to insert data in one table and then 
+-- automatically insert the data into the other tables

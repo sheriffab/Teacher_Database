@@ -11,19 +11,6 @@ CREATE TABLE TEACHER_DETAILS
 );
 -- Primary key is ouputted as one?
 
-INSERT INTO TEACHER_DETAILS
-( -- Columns to insert data into
- [Fname], [Lname], [Salary]
-)
-VALUES
-( -- First row: values for the columns in the list above
- 'Name3', 'LastName3', '60000'
-);
--- Add more rows here
-GO
-
-SELECT * FROM [TEACHER_DETAILS] ;
-
 CREATE TABLE TEACHERS
 (
     Teacher_id      INT                NOT NULL,
@@ -39,20 +26,31 @@ CREATE TABLE TEACHERS
 );
 GO
 
--- ERROR: The INSERT statement conflicted with the FOREIGN KEY constraint "FK__TEACHERS__5EBF139D".
-INSERT INTO TEACHERS
-( -- Columns to insert data into
- [Teacher_id] , [Teacher_name] , [Teacher_lastName], [Teacher_salary]
+CREATE TABLE CLASS_DETAILS
+(
+    class_name      VARCHAR(15)             NOT NULL,
+    class_size      INT                     NOT NULL,
+    class_subject   VARCHAR(15)             NOT NULL,
+    PRIMARY KEY (class_name, class_size, class_subject)
 )
-VALUES
-( -- First row: values for the columns in the list above
- '003' , 'Name2', 'LastName2', '60000'
-);
 
-SELECT * FROM [TEACHERS] ;
+CREATE TABLE CLASSES
+(
+    cc_id            INT                 NOT NULL, -- CC - classes-Class 
+    cc_name          VARCHAR(15)         NOT NULL,
+    cc_size          INT                 NOT NULL,
+    cc_subject       VARCHAR(15)         NOT NULL,
+    cc_teacher_id    INT                 NOT NULL,
+    FOREIGN KEY(cc_teacher_id)
+        REFERENCES teachers(Teacher_id),
 
--- Add more rows here
-GO
+    FOREIGN KEY (cc_name, cc_size, cc_subject)
+        REFERENCES CLASS_DETAILS( class_name, class_size, class_subject ),
+    
+    PRIMARY KEY(cc_id)
+)
+
+
 
 
 

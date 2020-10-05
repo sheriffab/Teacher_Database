@@ -22,8 +22,6 @@ VALUES
 -- Add more rows here
 GO
 
-SELECT * FROM [TEACHER_DETAILS] ;
-
 CREATE TABLE TEACHERS
 (
     Teacher_id      INT                NOT NULL,
@@ -39,17 +37,25 @@ CREATE TABLE TEACHERS
 );
 GO
 
--- ERROR: The INSERT statement conflicted with the FOREIGN KEY constraint "FK__TEACHERS__5EBF139D".
+
 INSERT INTO TEACHERS
 ( -- Columns to insert data into
  [Teacher_id] , [Teacher_name] , [Teacher_lastName], [Teacher_salary]
 )
 VALUES
 ( -- First row: values for the columns in the list above
- '003' , 'Name2', 'LastName2', '60000'
+ '001' , 'Name1', 'LastName2', '60000'
+);
+INSERT INTO TEACHERS
+( -- Columns to insert data into
+ [Teacher_id] , [Teacher_name] , [Teacher_lastName], [Teacher_salary]
+)
+VALUES
+( -- First row: values for the columns in the list above
+ '002' , 'Name2', 'LastName2', '60000'
 );
 
-SELECT * FROM [TEACHERS] ;
+
 
 -- Add more rows here
 GO
