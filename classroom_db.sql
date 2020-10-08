@@ -26,6 +26,7 @@ GO
 
 /*
  * Students table:
+ * Details to include ?
  */
 CREATE TABLE Students
 (
@@ -33,7 +34,6 @@ CREATE TABLE Students
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     phone_number CHAR(10),
-    curr_address VARCHAR(100) NOT NULL,
     academic_standing VARCHAR(50),
     sudent_summary VARCHAR(1000),
     PRIMARY KEY (student_id)
@@ -43,6 +43,7 @@ GO
 
 /*
  * Student_Loans table:
+ * Details to include ?
  */
 
 CREATE TABLE Student_Loans
@@ -54,7 +55,7 @@ CREATE TABLE Student_Loans
     date_of_loan DATE NOT NULL,
     loan_amount FLOAT NOT NULL,
     loan_interest FLOAT NOT NULL,
-    loan_agreement_terms VARCHAR(1000) NOT NULL
+    loan_agreement_terms VARCHAR(1000) NOT NULL,
     PRIMARY KEY (student_loan_id)
 )
 
@@ -62,6 +63,7 @@ GO
 
 /*
  * Transcripts table:
+ * Details to include ?
  */
 
 GO
@@ -72,7 +74,7 @@ CREATE TABLE Transcripts
     student_id VARCHAR(20) NOT NULL
         REFERENCES Students(student_id),
     transcript_date DATE NOT NULL,
-    transcript_type VARCHAR(20) NULL
+    transcript_type VARCHAR(20) NULL,
     PRIMARY KEY (transcript_id)
 )
 
@@ -80,6 +82,7 @@ GO
 
 /*
  * Behaviour_Monitoring table:
+ * Details to include ?
  */
 
 CREATE TABLE Behaviour_Monitoring
@@ -96,6 +99,7 @@ GO
 
 /*
  * Address table:
+ * Details to include?
  */
 CREATE TABLE Addresses
 (
@@ -112,6 +116,7 @@ GO
 
 /*
  * Classes table:
+ * Details to include ?
  */
 CREATE TABLE Classes
 (
@@ -122,7 +127,7 @@ CREATE TABLE Classes
         REFERENCES Teachers(teacher_id),
     class_name VARCHAR(25) NOT NULL,
     pre_req VARCHAR(10) NOT NULL,
-    delivery_mode VARCHAR(10) NOT NULL
+    delivery_mode VARCHAR(10) NOT NULL,
     PRIMARY KEY (class_id)
 )
 
@@ -130,6 +135,7 @@ GO
 
 /*
  * Ref_Address_types table:
+ * Details to include ?
  */
 CREATE TABLE Ref_Address_Types
 (
@@ -142,6 +148,7 @@ GO
 
 /*
  * Students_Addresses table:
+ * Details to include ?
  */
 CREATE TABLE Students_Addresses
 (
@@ -161,6 +168,7 @@ GO
 
 /*
  * Ref_Event_Types table:
+ * Details to include ?
  */
 
 CREATE TABLE Ref_Event_Types
@@ -174,6 +182,7 @@ GO
 
 /*
  * Student_Events table:
+ * Details to include ?
  */
 
 CREATE TABLE Student_Events
@@ -184,7 +193,7 @@ CREATE TABLE Student_Events
     event_type_code VARCHAR(20) NOT NULL
         REFERENCES Ref_Event_Types(event_type_code),
     event_date DATE NOT NULL,
-    event_duaration VARCHAR(10) NULL
+    event_duaration VARCHAR(10) NULL,
     PRIMARY KEY (event_id)
 )
 
@@ -192,6 +201,7 @@ GO
 
 /*
  * Ref_Achievement_Type table:
+ * Details to include ?
  */
 
 CREATE TABLE Ref_Achievement_Type
@@ -205,6 +215,7 @@ GO
 
 /*
  * Achievements table:
+ * Details to include ?
  */
 
 CREATE TABLE Achievements
@@ -216,7 +227,7 @@ CREATE TABLE Achievements
         REFERENCES Students(student_id),
     archievement_date DATE NOT NULL,
     semester VARCHAR(10) NOT NULL,
-    major VARCHAR(30) NULL
+    major VARCHAR(30) NULL,
     PRIMARY KEY (achievement_id)
 )
 
@@ -224,6 +235,7 @@ GO
 
 /*
  * Ref_Detention_Type table:
+ * Details to include ?
  */
 
 CREATE TABLE Ref_Detention_Type
@@ -237,6 +249,7 @@ GO
 
 /*
  * Detention table:
+ * Details to include ?
  */
 
 CREATE TABLE Detention
@@ -273,12 +286,12 @@ VALUES('2924428', 'Douglas', 'Troegar', '2128287878', '160 Convent Ave, New York
 
 --insert into Students table
 INSERT Students
-VALUES('28929292', 'Amadou', 'Jallow', '9179998765', '3000 Manhattan Ave, New York, NY, 10082', 'Good', 'Expected to graduate Fall 2021')
+VALUES('28929292', 'Amadou', 'Jallow', '9179998765', 'Good', 'Expected to graduate Fall 2021')
 
  GO
 
 INSERT Students
-VALUES('28232292', 'Christina', 'Barry', '9178887865', '3000 Covenant Ave, New York, NY, 10092', 'Good', 'Expected to graduate Fall 2022')
+VALUES('28232292', 'Christina', 'Barry', '9178887865', 'Good', 'Expected to graduate Fall 2022')
 
  GO
 
@@ -336,6 +349,7 @@ INSERT Classes
 VALUES('89892', '28232292', '2924428', 'CSC-30100', 'CSC-10400', 'Hybrid')
 
 GO
+
 
 --insert into Ref_Address_Types table
 INSERT Ref_Address_Types
@@ -427,6 +441,7 @@ GO
 
 --============================================END_OF_TABLES_CREATION========================================================
 
+
 /*
  * Print detail info about classroom database
  */
@@ -435,6 +450,7 @@ SELECT *
 FROM Sys.Tables
 
 GO
+
 
 /*
  * Print individual tables
