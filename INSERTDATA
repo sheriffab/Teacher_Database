@@ -1,7 +1,6 @@
 -- INSERT DATA
 
 
-
 -- Teacher Details
 INSERT INTO TEACHER_DETAILS
 ( -- Columns to insert data into
