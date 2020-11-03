@@ -45,23 +45,27 @@ create TABLE ENROLLED (
 
 
 -- anthony
+-- establishes 1:1 relationship b/w student and transcript
 	create table Transcripts
 	(transaction_id int not null PRIMARY KEY,
 	 student_id int FOREIGN KEY
 		references Students(student_id) not null,
-	sate_of_transcript datetime not null,
+	date_of_transcript datetime not null,
 	transaction_details varchar(50) null)
 go
+-- establishes 1:1 b/w student and behaviour monitoring
 	create table Behavior_Monitoring
 	(behavior_monitoring_id int not null PRIMARY KEY,
 	 student_id int FOREIGN KEY	
 		references Students(student_id) not null,
 	behav_monitoring_details varchar(50) null)
 go
+
 	create table Ref_Detention_Type
 	(detention_type_code int not null PRIMARY KEY,
 	detention_type_description varchar(50) not null,)
 go
+-- establishes 1:N for student and detention
 	create table Detention
 	(detention_id int not null PRIMARY KEY,
 	detention_type_code int FOREIGN KEY
