@@ -21,6 +21,8 @@ CREATE TABLE CLASS(
     PRIMARY KEY (class_id)
 )
 
+
+
 CREATE TABLE STUDENT(
     student_id      INT             NOT NULL,
     std_Fname       VARCHAR(20)     ,
@@ -43,13 +45,12 @@ create TABLE ENROLLED (
         
 )
 
-
 -- anthony
 -- establishes 1:1 relationship b/w student and transcript
 	create table Transcripts
 	(transaction_id int not null PRIMARY KEY,
 	 student_id int FOREIGN KEY
-		references Students(student_id) not null,
+		references Student(student_id) not null,
 	date_of_transcript datetime not null,
 	transaction_details varchar(50) null)
 go
@@ -57,7 +58,7 @@ go
 	create table Behavior_Monitoring
 	(behavior_monitoring_id int not null PRIMARY KEY,
 	 student_id int FOREIGN KEY	
-		references Students(student_id) not null,
+		references Student(student_id) not null,
 	behav_monitoring_details varchar(50) null)
 go
 
@@ -71,9 +72,32 @@ go
 	detention_type_code int FOREIGN KEY
 		references  Ref_Detention_Type(detention_type_code),
 	student_id int FOREIGN KEY
-		references Students(student_id),
+		references Student(student_id),
 	datetime_detention_start datetime null,
 	datetime_detention_end datetime null,
 	detention_summary varchar(50) null,
 	other_detail varchar(50))
 go
+
+-- N:1
+-- student can have more than 1 guardian 
+CREATE TABLE GUARDIAN (
+	guardian_id		INT 			NOT NULL,
+	guardian_name	VARCHAR(20)				,
+
+	PRIMARY KEY(guardian_id)
+)
+
+-- Jason
+-- M:N Relationship
+-- student can have 2 guardians 
+-- guardian can be a gaurdian of more than 1 student 
+CREATE TABLE STUDENT_GUARDIAN(
+	guardian_id		INT 	NOT NULL,
+	student_id      INT     NOT NULL,
+
+	FOREIGN KEY (student_id) REFERENCES STUDENT(student_id),
+	FOREIGN KEY(guardian_id) REFERENCES GUARDIAN(guardian_id),
+
+	CONSTRAINT PK_STUDENT_GUARDIAN PRIMARY KEY (guardian_id, student_id)
+)
