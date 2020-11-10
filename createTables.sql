@@ -79,33 +79,31 @@ go
 	other_detail varchar(50))
 go
 
--- have to remake this
--- should be a M:N relation
-	-- there can be various messages for a gaurdian
-	-- 
-CREATE TABLE GUARDIAN_MESSAGE(
-	message_id		INT 	NOT NULL,
-	message_details	VARCHAR(50),
-	guardian_id		INT		NOT NULL, 
-		-- This is needed to notifiy the guardian
-		
-	-- FOREIGN KEY guardian_id REFERENCES GUARDIAN(guardian_id),
-	PRIMARY KEY(message_id)
-)
 
 
 CREATE TABLE GUARDIAN (
 	guardian_id			INT 			NOT NULL,
 	guardian_name		VARCHAR(20)				,
-	guardian_number		INT,
-	message_id			INT, 
+	guardian_number		VARCHAR(14),
+	-- message_id			INT, 
 		-- establishes 1 message for 2 or more gaurdians
 
-	FOREIGN KEY (message_id) REFERENCES GUARDIAN_MESSAGE(message_id),
+	-- FOREIGN KEY (message_id) REFERENCES GUARDIAN_MESSAGE(message_id),
 	PRIMARY KEY(guardian_id)
 )
 
--- Jason
+	-- M:N relation
+CREATE TABLE GUARDIAN_MESSAGE(
+	message_id		INT 	NOT NULL,
+	message_details	VARCHAR(50),
+	guardian_id		INT		, 
+		-- This is needed to notifiy the guardian
+		
+	FOREIGN KEY (guardian_id) REFERENCES GUARDIAN(guardian_id),
+	-- 
+	CONSTRAINT PK_GUARDIAN_MESSAGE PRIMARY KEY(message_id, guardian_id)
+)
+
 -- M:N Relationship
 -- student can have 2 guardians 
 -- guardian can have various students 

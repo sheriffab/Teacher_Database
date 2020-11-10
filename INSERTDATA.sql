@@ -137,3 +137,20 @@ insert Detention
 values(5, 75, 10105, '6/18/21', '6/19/21', 
 'detention details', 'other details i guess')
 go
+
+
+INSERT GUARDIAN VALUES
+( 101, 'VIC CON', '646-824-5892' )
+
+INSERT GUARDIAN VALUES
+( 102, 'SIN CON', '646-824-1717' )
+
+INSERT GUARDIAN_MESSAGE VALUES
+( 1212, 'missing hw', 101  )
+
+-- We would want to make it work
+-- we would want both parents to be notified
+INSERT GUARDIAN_MESSAGE VALUES
+( 1212, 'missing hw', 101  )
+
+select * from guardian_message
