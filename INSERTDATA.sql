@@ -1,50 +1,8 @@
 -- INSERT DATA
 
 
--- Teacher Details
-INSERT INTO TEACHER_DETAILS
-( -- Columns to insert data into
- [Fname], [Lname], [Salary]
-)
-VALUES
-( -- First row: values for the columns in the list above
- 'Name1', 'LastName', '60000'
-);
 
-INSERT INTO TEACHER_DETAILS
-( -- Columns to insert data into
- [Fname], [Lname], [Salary]
-)
-VALUES
-( -- First row: values for the columns in the list above
- 'Name2', 'LastName2', '60000'
-);
-INSERT INTO TEACHER_DETAILS
-( -- Columns to insert data into
- [Fname], [Lname], [Salary]
-)
-VALUES
-( -- First row: values for the columns in the list above
- 'Name3', 'LastName3', '60000'
-);
 
--- insert into teachers
-INSERT INTO TEACHERS
-( -- Columns to insert data into
- [Teacher_id] , [Teacher_name] , [Teacher_lastName], [Teacher_salary]
-)
-VALUES
-( -- First row: values for the columns in the list above
- '004' , 'Name4', 'LastName4', '6000'
-);
-INSERT INTO TEACHERS
-( -- Columns to insert data into
- [Teacher_id] , [Teacher_name] , [Teacher_lastName], [Teacher_salary]
-)
-VALUES
-( -- First row: values for the columns in the list above
- '002' , 'Name2', 'LastName2', '60000'
-);
 
 -- insert into class_details
 INSERT INTO CLASS_DETAILS
@@ -97,28 +55,16 @@ VALUES
 -- How to insert data in one table and then 
 -- automatically insert the data into the other tables
 
+INSERT STUDENT 
+    VALUES ('10101', 'Ron' , 'Edward')
+
+INSERT STUDENT 
+    VALUES ('10102', 'Jason' , 'Dav')
+
+INSERT STUDENT 
+    VALUES ('10103', 'Su' , 'Roh')
 
 
-insert Students
-values (10101, 'This is dummy detail', 
-'this is not a real student')
-go
-insert Students
-values (10102, 'This is dummy detail', 
-'this is not a real student')
-go
-insert Students
-values (10103, 'This is dummy detail', 
-'this is not a real student')
-go
-insert Students
-values (10104, 'This is dummy detail', 
-'this is not a real student')
-go
-insert Students
-values (10105, 'This is dummy detail', 
-'this is not a real student')
-go
 
 insert Transcripts
 values(99, 10101, '6/17/18', 'idk what to say')
@@ -168,9 +114,12 @@ insert Ref_Detention_Type
 values(75, 'A type of detention')
 go
 
+-- det_id, det_code, std_id
 insert Detention
 values(1, 71, 10101, '6/18/21', '6/19/21', 
-'detention details', 'other details i guess')
+'detention summary1', 'more details')
+
+
 go
 insert Detention
 values(2, 72, 10102, '6/18/21', '6/19/21', 

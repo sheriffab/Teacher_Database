@@ -7,8 +7,7 @@ SELECT * FROM [CLASS_DETAILS] ;
 
 SELECT * FROM [CLASSES] ;
 
-select * 
-from Students
+
 
 select *
 from Transcripts
@@ -18,6 +17,9 @@ from Behavior_Monitoring
 
 select * 
 from Ref_Detention_Type
+
+select * 
+from Student
 
 select * 
 from  Detention

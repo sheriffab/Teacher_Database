@@ -1,0 +1,3 @@
+-- every time we insert a dention row
+    -- email will be sent to the guardian (enter a new row of data for
+    -- gaurdian message )
